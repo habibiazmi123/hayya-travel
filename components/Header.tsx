@@ -13,7 +13,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-[#eee8dc] bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-5 px-4">
         <Link href="/" className="inline-flex min-h-11 items-center" aria-label="Hayya Tour & Travel - Beranda">
-          <Image src="/logo.png" alt="Hayya Umroh Hajj" width={112} height={68} priority className="h-14 w-auto object-contain" />
+          <Image src="/logo.png" alt="Hayya Umroh Hajj" width={112} height={68} preload className="h-14 w-auto object-contain" />
         </Link>
         <nav aria-label="Navigasi utama" className="hidden items-center gap-5 lg:flex">
           {SITE.nav.map((item) => (

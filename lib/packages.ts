@@ -9,6 +9,7 @@ export type PackageInfo = {
   airline?: string;
   priceFrom: number;
   image: string;
+  gallery?: { src: string; alt: string; width: number; height: number }[];
   schedule: string[];
   hotels?: { makkah: string; madinah: string };
   roomPrices?: RoomPrice[];
@@ -25,8 +26,21 @@ export const PACKAGES: PackageInfo[] = [
     durationLabel: "9 Hari",
     departureCity: "Jakarta",
     priceFrom: 35900000,
-    image: "/package-1.jpg",
+    image: "/destinations/umrah-makkah.jpg",
+    gallery: [{ src: "/destinations/umrah-makkah.jpg", alt: "Masjidil Haram di Mekkah", width: 1800, height: 2700 }],
     schedule: ["Tanggal: 24 Desember 2026", "Periode: 9 Hari", "Keberangkatan: Jakarta"],
+    hotels: {
+      makkah: "Hotel bintang 3 / setaraf",
+      madinah: "Hotel bintang 3 / setaraf",
+    },
+    roomPrices: [
+      { label: "Quad Room / sekamar berempat", price: 35900000 },
+      { label: "Triple Room / sekamar bertiga", price: 37500000 },
+      { label: "Double Room / sekamar berdua", price: 39900000 },
+    ],
+    included: ["Tiket pesawat PP", "Visa Umrah", "Akomodasi hotel", "Transportasi", "Makan 3x sehari", "Muthawif / pembimbing ibadah"],
+    excluded: ["Pembuatan paspor", "Vaksin", "Keperluan pribadi"],
+    notes: ["Seat terbatas", "Harga dapat berubah sewaktu-waktu"],
   },
   {
     slug: "umrah-falah-07-nov-2026",
@@ -34,8 +48,21 @@ export const PACKAGES: PackageInfo[] = [
     dateLabel: "07 November 2026",
     durationLabel: "9 Hari",
     priceFrom: 38600000,
-    image: "/package-2.jpg",
+    image: "/destinations/umrah-makkah.jpg",
+    gallery: [{ src: "/destinations/umrah-makkah.jpg", alt: "Masjidil Haram di Mekkah", width: 1800, height: 2700 }],
     schedule: ["Tanggal: 07 November 2026", "Periode: 9 Hari"],
+    hotels: {
+      makkah: "Hotel bintang 3 / setaraf",
+      madinah: "Hotel bintang 3 / setaraf",
+    },
+    roomPrices: [
+      { label: "Quad Room / sekamar berempat", price: 38600000 },
+      { label: "Triple Room / sekamar bertiga", price: 40200000 },
+      { label: "Double Room / sekamar berdua", price: 42500000 },
+    ],
+    included: ["Tiket pesawat PP", "Visa Umrah", "Akomodasi hotel", "Transportasi", "Makan 3x sehari", "Muthawif / pembimbing ibadah"],
+    excluded: ["Pembuatan paspor", "Vaksin", "Keperluan pribadi"],
+    notes: ["Seat terbatas", "Harga dapat berubah sewaktu-waktu"],
   },
   {
     slug: "umrah-berkah-08-okt-2026",
@@ -45,7 +72,8 @@ export const PACKAGES: PackageInfo[] = [
     departureCity: "Jakarta",
     airline: "Etihad Airways",
     priceFrom: 33850000,
-    image: "/package-3.jpg",
+    image: "/destinations/umrah-makkah.jpg",
+    gallery: [{ src: "/destinations/umrah-makkah.jpg", alt: "Masjidil Haram di Mekkah", width: 1800, height: 2700 }],
     schedule: ["Tanggal: 08 Oktober 2026", "Periode: 12 Hari", "Keberangkatan: Jakarta", "Maskapai: Etihad Airways"],
     hotels: {
       makkah: "Hotel bintang 3 (Fajr Badee 4) / setaraf (5 malam)",
@@ -82,8 +110,21 @@ export const PACKAGES: PackageInfo[] = [
     durationLabel: "9 Hari",
     departureCity: "Jakarta",
     priceFrom: 26900000,
-    image: "/package-4.jpg",
+    image: "/destinations/umrah-makkah.jpg",
+    gallery: [{ src: "/destinations/umrah-makkah.jpg", alt: "Masjidil Haram di Mekkah", width: 1800, height: 2700 }],
     schedule: ["Tanggal: 03 Agustus 2026", "Periode: 9 Hari", "Keberangkatan: Jakarta"],
+    hotels: {
+      makkah: "Hotel bintang 3 / setaraf",
+      madinah: "Hotel bintang 3 / setaraf",
+    },
+    roomPrices: [
+      { label: "Quad Room / sekamar berempat", price: 26900000 },
+      { label: "Triple Room / sekamar bertiga", price: 28500000 },
+      { label: "Double Room / sekamar berdua", price: 30900000 },
+    ],
+    included: ["Tiket pesawat PP", "Visa Umrah", "Akomodasi hotel", "Transportasi", "Makan 3x sehari", "Muthawif / pembimbing ibadah"],
+    excluded: ["Pembuatan paspor", "Vaksin", "Keperluan pribadi"],
+    notes: ["Seat terbatas", "Harga dapat berubah sewaktu-waktu"],
   },
 ];
 

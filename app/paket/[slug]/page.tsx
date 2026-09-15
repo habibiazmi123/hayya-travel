@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const packageInfo = getPackage(slug);
   if (!packageInfo) return { title: "Paket tidak ditemukan | Hayya" };
-  return { title: `${packageInfo.name} | Hayya Tour & Travel`, description: `${packageInfo.name}, ${packageInfo.durationLabel}, mulai ${formatIDR(packageInfo.priceFrom)}.` };
+  return { title: `${packageInfo.name} | Hayya Tour & Travel`, description: `${packageInfo.name}, ${packageInfo.durationLabel}, mulai ${formatIDR(packageInfo.priceFrom)}.`, alternates: { canonical: `/paket/${packageInfo.slug}` } };
 }
 
 function DetailList({ title, items }: { title: string; items?: string[] }) {

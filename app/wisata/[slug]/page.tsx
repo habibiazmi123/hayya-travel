@@ -6,7 +6,7 @@ import { generalWaLink } from "@/lib/whatsapp";
 import { getTour, tourSlugs } from "@/lib/content";
 
 export function generateStaticParams() { return tourSlugs().map((slug) => ({ slug })); }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const item = getTour(slug); return item ? { title: `${item.title} | Hayya Tour & Travel`, description: item.excerpt } : { title: "Wisata tidak ditemukan | Hayya" }; }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const item = getTour(slug); return item ? { title: `${item.title} | Hayya Tour & Travel`, description: item.excerpt, alternates: { canonical: `/wisata/${item.slug}` } } : { title: "Wisata tidak ditemukan | Hayya" }; }
 
 export default async function WisataDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params; const item = getTour(slug); if (!item) notFound();

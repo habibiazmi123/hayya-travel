@@ -6,6 +6,7 @@ import { PACKAGES } from "@/lib/packages";
 export const metadata: Metadata = {
   title: "Paket Umroh 2026 | Hayya Tour & Travel",
   description: "Lihat pilihan paket umroh Hayya Tour & Travel untuk keberangkatan tahun 2026.",
+  alternates: { canonical: "/paket" },
 };
 
 export default function PaketPage() {

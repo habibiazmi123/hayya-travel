@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { articleSlugs, getArticle } from "@/lib/content";
 
 export function generateStaticParams() { return articleSlugs().map((slug) => ({ slug })); }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const item = getArticle(slug); return item ? { title: `${item.title} | Hayya Tour & Travel`, description: item.excerpt } : { title: "Artikel tidak ditemukan | Hayya" }; }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const item = getArticle(slug); return item ? { title: `${item.title} | Hayya Tour & Travel`, description: item.excerpt, alternates: { canonical: `/berita/${item.slug}` } } : { title: "Artikel tidak ditemukan | Hayya" }; }
 
 export default async function BeritaDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params; const item = getArticle(slug); if (!item) notFound();

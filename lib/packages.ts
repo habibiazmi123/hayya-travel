@@ -1,0 +1,96 @@
+export type RoomPrice = { label: string; price: number };
+
+export type PackageInfo = {
+  slug: string;
+  name: string;
+  dateLabel: string;
+  durationLabel: string;
+  departureCity?: string;
+  airline?: string;
+  priceFrom: number;
+  image: string;
+  schedule: string[];
+  hotels?: { makkah: string; madinah: string };
+  roomPrices?: RoomPrice[];
+  included?: string[];
+  excluded?: string[];
+  notes?: string[];
+};
+
+export const PACKAGES: PackageInfo[] = [
+  {
+    slug: "umrah-special-akhir-tahun-24-des-2026",
+    name: "Umrah Special Akhir Tahun 24 Desember 2026",
+    dateLabel: "24 Desember 2026",
+    durationLabel: "9 Hari",
+    departureCity: "Jakarta",
+    priceFrom: 35900000,
+    image: "/package-1.jpg",
+    schedule: ["Tanggal: 24 Desember 2026", "Periode: 9 Hari", "Keberangkatan: Jakarta"],
+  },
+  {
+    slug: "umrah-falah-07-nov-2026",
+    name: "Umrah Falah 07 November 2026",
+    dateLabel: "07 November 2026",
+    durationLabel: "9 Hari",
+    priceFrom: 38600000,
+    image: "/package-2.jpg",
+    schedule: ["Tanggal: 07 November 2026", "Periode: 9 Hari"],
+  },
+  {
+    slug: "umrah-berkah-08-okt-2026",
+    name: "Umrah Berkah 08 Oktober 2026",
+    dateLabel: "08 Oktober 2026",
+    durationLabel: "12 Hari",
+    departureCity: "Jakarta",
+    airline: "Etihad Airways",
+    priceFrom: 33850000,
+    image: "/package-3.jpg",
+    schedule: ["Tanggal: 08 Oktober 2026", "Periode: 12 Hari", "Keberangkatan: Jakarta", "Maskapai: Etihad Airways"],
+    hotels: {
+      makkah: "Hotel bintang 3 (Fajr Badee 4) / setaraf (5 malam)",
+      madinah: "Hotel bintang 3 (Anwar Al-Zahra) / setaraf (5 malam)",
+    },
+    roomPrices: [
+      { label: "Quad Room / sekamar berempat", price: 33850000 },
+      { label: "Triple Room / sekamar bertiga", price: 35500000 },
+      { label: "Double Room / sekamar berdua", price: 37850000 },
+    ],
+    included: [
+      "Tiket pesawat PP (Economy Class Seat)",
+      "Visa Umrah",
+      "Akomodasi hotel Mekah & Madinah",
+      "Driver & transportasi",
+      "Makan & minum (Full Board 3x sehari)",
+      "Muthawif / Pembimbing ibadah profesional",
+      "Air Zam-zam 5 liter per jamaah",
+      "Asuransi perjalanan",
+      "Perlengkapan umroh Rp. 1.500.000",
+    ],
+    excluded: [
+      "Pembuatan paspor",
+      "Vaksin meningitis & polio",
+      "Tiket domestik / add on ke Bandara Soekarno-Hatta",
+      "Keperluan pribadi",
+    ],
+    notes: ["Seat terbatas", "Program disusun untuk kenyamanan & kekhusyukan ibadah"],
+  },
+  {
+    slug: "umroh-super-hizz-03-agu-2026",
+    name: "Umroh Super Hizz 03 Agustus 2026",
+    dateLabel: "03 Agustus 2026",
+    durationLabel: "9 Hari",
+    departureCity: "Jakarta",
+    priceFrom: 26900000,
+    image: "/package-4.jpg",
+    schedule: ["Tanggal: 03 Agustus 2026", "Periode: 9 Hari", "Keberangkatan: Jakarta"],
+  },
+];
+
+export function packageSlugs(): string[] {
+  return PACKAGES.map((item) => item.slug);
+}
+
+export function getPackage(slug: string): PackageInfo | undefined {
+  return PACKAGES.find((item) => item.slug === slug);
+}

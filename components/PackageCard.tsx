@@ -14,7 +14,7 @@ export function PackageCard({ packageInfo }: { packageInfo: PackageInfo }) {
         <LoadingImage src={packageInfo.image} alt={packageInfo.name} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
       </div>
       <div className="flex flex-1 flex-col p-4 sm:p-5">
-        <h3 className="font-display text-xl font-bold leading-tight text-pine">{packageInfo.name}</h3>
+        <h3 className="line-clamp-2 min-h-[3.125rem] font-display text-xl font-bold leading-tight text-pine">{packageInfo.name}</h3>
         <div className="mt-4 rounded-2xl bg-[#f7f1e5] p-4">
           <p className="text-[11px] font-extrabold uppercase tracking-[0.08em] text-[#94744b]">Harga mulai dari</p>
           <p className="mt-1 text-2xl font-black leading-none text-pine">{formatIDR(packageInfo.priceFrom)}</p>

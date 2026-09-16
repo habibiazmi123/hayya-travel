@@ -32,8 +32,8 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
     ["Keberangkatan", packageInfo.dateLabel],
     ["Durasi", packageInfo.durationLabel],
     packageInfo.departureCity ? ["Dari", packageInfo.departureCity] : null,
-    ["Maskapai", packageInfo.airline ?? "Konfirmasi"],
-    ["Seat", packageInfo.seatLabel ?? "Konfirmasi"],
+    packageInfo.airline ? ["Maskapai", packageInfo.airline] : null,
+    packageInfo.seatLabel ? ["Seat", packageInfo.seatLabel] : null,
   ].filter((fact): fact is [string, string] => Boolean(fact));
 
   return (

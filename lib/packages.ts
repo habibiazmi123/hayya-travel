@@ -8,6 +8,7 @@ export type PackageInfo = {
   departureCity?: string;
   airline?: string;
   seatLabel?: string;
+  departureDates?: string[];
   priceFrom: number;
   image: string;
   gallery?: { src: string; alt: string; width: number; height: number }[];

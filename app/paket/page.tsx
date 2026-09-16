@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function PaketPage() {
-  return <div className="mx-auto max-w-6xl px-4 py-16"><SectionHeading eyebrow="KATALOG PERJALANAN" title="Paket Umroh 2026" description="Lihat jadwal, durasi, harga mulai, dan detail paket. Konsultasikan ketersediaan seat langsung dengan tim Hayya." />{PACKAGES.length === 0 ? <p className="mt-10 text-center text-sage">Paket sedang diperbarui. Chat WhatsApp untuk jadwal terbaru.</p> : <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{PACKAGES.map((packageInfo) => <PackageCard key={packageInfo.slug} packageInfo={packageInfo} />)}</div>}</div>;
+  return <div className="mx-auto max-w-6xl px-4 py-16"><SectionHeading eyebrow="KATALOG PERJALANAN" title="Paket Umroh 2026" description="Bandingkan maskapai, durasi, tanggal keberangkatan, dan ketersediaan seat dalam satu tampilan." />{PACKAGES.length === 0 ? <p className="mt-10 text-center text-sage">Paket sedang diperbarui. Chat WhatsApp untuk jadwal terbaru.</p> : <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{PACKAGES.slice(0, 3).map((packageInfo) => <PackageCard key={packageInfo.slug} packageInfo={packageInfo} />)}</div>}</div>;
 }

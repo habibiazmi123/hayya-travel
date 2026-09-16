@@ -32,7 +32,8 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
     ["Keberangkatan", packageInfo.dateLabel],
     ["Durasi", packageInfo.durationLabel],
     packageInfo.departureCity ? ["Dari", packageInfo.departureCity] : null,
-    packageInfo.airline ? ["Maskapai", packageInfo.airline] : null,
+    ["Maskapai", packageInfo.airline ?? "Konfirmasi"],
+    ["Seat", packageInfo.seatLabel ?? "Konfirmasi"],
   ].filter((fact): fact is [string, string] => Boolean(fact));
 
   return (
@@ -53,7 +54,7 @@ export default async function PackageDetailPage({ params }: { params: Promise<{ 
       </div>
 
       <Reveal>
-        <dl className="mt-10 grid overflow-hidden rounded-3xl border border-[#eee8dc] bg-white sm:grid-cols-2 lg:grid-cols-4">{facts.map(([label, value]) => <div key={label} className="border-b border-[#eee8dc] p-5 last:border-0 sm:nth-[2n]:border-r-0 lg:border-b-0 lg:border-r lg:last:border-r-0"><dt className="text-xs text-sage">{label}</dt><dd className="mt-1 font-bold text-pine">{value}</dd></div>)}</dl>
+        <dl className="mt-10 grid overflow-hidden rounded-3xl border border-[#eee8dc] bg-white sm:grid-cols-2 lg:grid-cols-5">{facts.map(([label, value]) => <div key={label} className="border-b border-[#eee8dc] p-5 last:border-0 sm:nth-[2n]:border-r-0 lg:border-b-0 lg:border-r lg:last:border-r-0"><dt className="text-xs text-sage">{label}</dt><dd className="mt-1 font-bold text-pine">{value}</dd></div>)}</dl>
       </Reveal>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2">

@@ -18,7 +18,6 @@ export const SITE = {
     { label: "Paket Umroh", href: "/paket" },
     { label: "Wisata", href: "/wisata" },
     { label: "Tentang", href: "/tentang" },
-    { label: "Galeri", href: "/galeri" },
     { label: "FAQ", href: "/faq" },
     { label: "Kontak", href: "/kontak" },
   ],

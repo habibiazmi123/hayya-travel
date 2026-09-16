@@ -7,6 +7,7 @@ export type PackageInfo = {
   durationLabel: string;
   departureCity?: string;
   airline?: string;
+  seatLabel?: string;
   priceFrom: number;
   image: string;
   gallery?: { src: string; alt: string; width: number; height: number }[];
@@ -25,6 +26,7 @@ export const PACKAGES: PackageInfo[] = [
     dateLabel: "24 Desember 2026",
     durationLabel: "9 Hari",
     departureCity: "Jakarta",
+    seatLabel: "Terbatas",
     priceFrom: 35900000,
     image: "/package-1.jpg",
     gallery: [{ src: "/package-1.jpg", alt: "Suasana perjalanan umroh", width: 1160, height: 1452 }],
@@ -47,6 +49,7 @@ export const PACKAGES: PackageInfo[] = [
     name: "Umrah Falah 07 November 2026",
     dateLabel: "07 November 2026",
     durationLabel: "9 Hari",
+    seatLabel: "Terbatas",
     priceFrom: 38600000,
     image: "/package-2.jpg",
     gallery: [{ src: "/package-2.jpg", alt: "Suasana perjalanan umroh", width: 1080, height: 1528 }],
@@ -71,6 +74,7 @@ export const PACKAGES: PackageInfo[] = [
     durationLabel: "12 Hari",
     departureCity: "Jakarta",
     airline: "Etihad Airways",
+    seatLabel: "Terbatas",
     priceFrom: 33850000,
     image: "/package-3.jpg",
     gallery: [{ src: "/package-3.jpg", alt: "Suasana perjalanan umroh", width: 1080, height: 1528 }],
@@ -109,6 +113,7 @@ export const PACKAGES: PackageInfo[] = [
     dateLabel: "03 Agustus 2026",
     durationLabel: "9 Hari",
     departureCity: "Jakarta",
+    seatLabel: "Terbatas",
     priceFrom: 26900000,
     image: "/destinations/umrah-makkah.jpg",
     gallery: [{ src: "/destinations/umrah-makkah.jpg", alt: "Masjidil Haram di Mekkah", width: 1800, height: 2700 }],

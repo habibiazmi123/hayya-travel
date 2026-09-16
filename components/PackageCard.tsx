@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { LoadingImage } from "@/components/LoadingImage";
 import type { PackageInfo } from "@/lib/packages";
 import { formatIDR } from "@/lib/format";
 import { packageWaLink } from "@/lib/whatsapp";
@@ -12,7 +12,7 @@ export function PackageCard({ packageInfo }: { packageInfo: PackageInfo }) {
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#eee8dc] bg-white shadow-[0_8px_24px_rgba(20,45,36,0.06)] transition-transform hover:-translate-y-1">
       <div className="relative h-48">
-        <Image src={packageInfo.image} alt={packageInfo.name} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
+        <LoadingImage src={packageInfo.image} alt={packageInfo.name} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
       </div>
       <div className="flex flex-1 flex-col p-5">
         <h3 className="font-display text-2xl font-bold leading-tight text-pine">{packageInfo.name}</h3>

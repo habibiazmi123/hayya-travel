@@ -2,22 +2,47 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { SITE } from "@/lib/site";
 import { generalWaLink } from "@/lib/whatsapp";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOverHero, setIsOverHero] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  useEffect(() => {
+    if (!isHome) return;
+
+    const sentinel = document.querySelector<HTMLElement>("[data-home-hero-sentinel]");
+    if (!sentinel) return;
+
+    const update = (top: number) => setIsOverHero(top <= 80);
+    const frame = window.requestAnimationFrame(() => update(sentinel.getBoundingClientRect().top));
+
+    const observer = new IntersectionObserver(
+      ([entry]) => update(entry.boundingClientRect.top),
+      { rootMargin: "-80px 0px 0px 0px" },
+    );
+    observer.observe(sentinel);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
+  }, [isHome]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[#eee8dc] bg-white/95 backdrop-blur">
+    <header className={`site-header ${isHome ? "site-header-home" : ""} ${isHome && !isOverHero ? "site-header-transparent" : "site-header-solid"}`}>
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-5 px-4">
         <Link href="/" className="inline-flex min-h-11 items-center" aria-label="Hayya Tour & Travel - Beranda">
           <Image src="/logo.png" alt="Hayya Umroh Hajj" width={112} height={68} preload className="h-14 w-auto object-contain" />
         </Link>
         <nav aria-label="Navigasi utama" className="hidden items-center gap-5 lg:flex">
           {SITE.nav.map((item) => (
-            <Link key={item.href} href={item.href} className="inline-flex min-h-11 items-center text-sm font-semibold text-ink/75 transition-colors hover:text-pine">
+              <Link key={item.href} href={item.href} className={`inline-flex min-h-11 items-center text-sm font-semibold transition-colors hover:text-gold-soft ${isHome && !isOverHero ? "text-white/85" : "text-ink/75"}`}>
               {item.label}
             </Link>
           ))}

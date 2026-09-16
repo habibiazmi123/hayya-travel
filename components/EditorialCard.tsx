@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { generalWaLink } from "@/lib/whatsapp";
 import { Reveal } from "@/components/Reveal";
+import { LoadingImage } from "@/components/LoadingImage";
 
 export function EditorialCard({ href, title, excerpt, image, meta, category, priceLabel, preload }: {
   href: string;
@@ -19,7 +19,7 @@ export function EditorialCard({ href, title, excerpt, image, meta, category, pri
     <Reveal className="h-full">
       <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#eee8dc] bg-white shadow-[0_8px_24px_rgba(20,45,36,0.06)] transition-transform duration-300 hover:-translate-y-1">
         <Link href={href} className="group relative block h-52 overflow-hidden" aria-label={`Lihat detail ${title}`}>
-          <Image src={image} alt={title} fill preload={preload} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
+          <LoadingImage src={image} alt={title} fill preload={preload} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" />
           <span className="absolute inset-x-3 bottom-3 rounded-full bg-pine/85 px-3 py-2 text-center text-xs font-bold text-white opacity-0 backdrop-blur transition group-hover:opacity-100 group-focus-visible:opacity-100">Buka detail</span>
         </Link>
         <div className="flex flex-1 flex-col p-5">

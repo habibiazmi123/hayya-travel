@@ -7,7 +7,19 @@ export type EditorialItem = {
 };
 
 export type FaqItem = { question: string; answer: string };
-export type GalleryItem = { src: string; alt: string; width: number; height: number };
+export type GalleryCategory = "Umroh" | "Wisata" | "Kebersamaan";
+export type GalleryAspect = "tall" | "medium" | "short" | "wide";
+export type GalleryItem = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  location: string;
+  area: string;
+  category: GalleryCategory;
+  aspect: GalleryAspect;
+};
+export type TestimonialItem = { image: string; quote: string; name: string; location: string };
 export type ItineraryItem = { title: string; description: string };
 export type TourCategory = "Religi" | "Asia" | "Eropa" | "Open Trip";
 
@@ -22,7 +34,7 @@ export type Tour = EditorialItem & {
   gallery: GalleryItem[];
 };
 
-const destinationImage = (src: string, alt: string): GalleryItem[] => [{ src, alt, width: 1800, height: 1200 }];
+const destinationImage = (src: string, alt: string): GalleryItem[] => [{ src, alt, width: 1800, height: 1200, location: alt, area: "Destinasi", category: "Wisata", aspect: "wide" }];
 
 export const TOURS: Tour[] = [
   {
@@ -162,13 +174,34 @@ export const FAQS: FaqItem[] = [
   { question: "Berapa lama durasi perjalanan?", answer: "Durasi mengikuti paket yang dipilih. Paket yang sedang tersedia memiliki durasi 9 atau 12 hari." },
 ];
 
+export const TESTIMONIALS: TestimonialItem[] = [
+  {
+    image: "/gallery-1.jpg",
+    quote: "Pelayanan hangat, informasi jelas, dan perjalanan terasa lebih tenang. Tim Hayya mendampingi kami sejak persiapan sampai kembali ke rumah.",
+    name: "Jamaah Hayya",
+    location: "Bandung",
+  },
+  {
+    image: "/gallery-3.jpg",
+    quote: "Pendampingan terasa dekat dan membantu kami fokus menjalankan ibadah dengan lebih nyaman.",
+    name: "Jamaah Hayya",
+    location: "Jawa Barat",
+  },
+  {
+    image: "/gallery-5.jpg",
+    quote: "Informasi perjalanan disampaikan dengan jelas, dari persiapan sampai momen kepulangan.",
+    name: "Jamaah Hayya",
+    location: "Indonesia",
+  },
+];
+
 export const GALLERY: GalleryItem[] = [
-  { src: "/gallery-1.jpg", alt: "Momen perjalanan jamaah Hayya", width: 400, height: 300 },
-  { src: "/gallery-2.jpg", alt: "Kegiatan jamaah Hayya", width: 400, height: 300 },
-  { src: "/gallery-3.jpg", alt: "Rombongan jamaah Hayya", width: 400, height: 300 },
-  { src: "/gallery-4.jpg", alt: "Dokumentasi perjalanan Hayya", width: 400, height: 300 },
-  { src: "/gallery-5.jpg", alt: "Suasana perjalanan jamaah", width: 400, height: 300 },
-  { src: "/gallery-6.jpg", alt: "Momen kebersamaan jamaah", width: 400, height: 300 },
+  { src: "/gallery-1.jpg", alt: "Momen perjalanan jamaah di Masjidil Haram", width: 400, height: 500, location: "Masjidil Haram", area: "Makkah", category: "Umroh", aspect: "tall" },
+  { src: "/gallery-2.jpg", alt: "Jamaah Hayya dalam perjalanan ibadah", width: 400, height: 300, location: "Momen Ibadah", area: "Tanah Suci", category: "Umroh", aspect: "short" },
+  { src: "/gallery-3.jpg", alt: "Rombongan jamaah Hayya dalam perjalanan", width: 500, height: 320, location: "Perjalanan Jamaah", area: "Tanah Suci", category: "Kebersamaan", aspect: "wide" },
+  { src: "/gallery-4.jpg", alt: "Kebersamaan jamaah Hayya", width: 400, height: 500, location: "Kebersamaan", area: "Hayya Umroh Hajj", category: "Kebersamaan", aspect: "tall" },
+  { src: "/gallery-5.jpg", alt: "Suasana perjalanan jamaah Hayya", width: 400, height: 380, location: "Langkah Suci", area: "Madinah", category: "Umroh", aspect: "medium" },
+  { src: "/gallery-6.jpg", alt: "Momen kebersamaan jamaah Hayya", width: 400, height: 380, location: "Cerita Perjalanan", area: "Kebersamaan Jamaah", category: "Kebersamaan", aspect: "medium" },
 ];
 
 export function tourSlugs(): string[] { return TOURS.map((item) => item.slug); }

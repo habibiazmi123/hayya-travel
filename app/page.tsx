@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { FaqList } from "@/components/FaqList";
 import { HeroVideo } from "@/components/HeroVideo";
+import { LoadingImage } from "@/components/LoadingImage";
 import { PackageCard } from "@/components/PackageCard";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
+import { TestimonialShowcase } from "@/components/TestimonialShowcase";
 import { TrustCard } from "@/components/TrustCard";
-import { FAQS, GALLERY } from "@/lib/content";
+import { FAQS, GALLERY, TESTIMONIALS } from "@/lib/content";
 import { PACKAGES } from "@/lib/packages";
 import { generalWaLink } from "@/lib/whatsapp";
+import { GalleryGrid } from "@/components/GalleryGrid";
 
 export const metadata: Metadata = {
   title: "Hayya Tour & Travel | Umroh Amanah dari Bandung",
@@ -19,10 +21,10 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <section className="relative isolate min-h-[680px] overflow-hidden bg-pine text-white">
+      <section data-home-hero className="relative isolate min-h-[100svh] overflow-hidden bg-pine text-white">
         <HeroVideo />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-pine-deep/95 via-pine/75 to-pine/35" />
-        <div className="relative z-10 mx-auto flex min-h-[680px] max-w-6xl items-center px-4 py-20 md:py-24">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl items-center px-4 py-24">
           <div>
             <p className="inline-flex rounded-full border border-gold/60 px-3 py-1 text-xs font-bold tracking-[0.16em] text-gold-soft">TRAVEL UMROH BERIZIN • BANDUNG</p>
             <h1 className="mt-5 max-w-xl font-display text-5xl font-bold leading-[0.98] md:text-7xl">Perjalanan Suci yang <span className="text-gold-soft">Nyaman, Khusyuk</span> &amp; Penuh Berkah</h1>
@@ -36,6 +38,7 @@ export default function Home() {
             </ul>
           </div>
         </div>
+        <span data-home-hero-sentinel aria-hidden="true" className="absolute bottom-0 left-0 h-px w-full" />
       </section>
 
       <section aria-label="Kepercayaan" className="border-b border-[#eee8dc] bg-white">
@@ -57,7 +60,7 @@ export default function Home() {
       <Reveal>
       <section aria-label="Pendampingan" className="border-y border-[#eee8dc] bg-white">
         <div className="mx-auto grid max-w-6xl items-center gap-9 px-4 py-16 md:grid-cols-2">
-          <div className="relative h-72 overflow-hidden rounded-3xl"><Image src="/story.jpg" alt="Kebersamaan jamaah Hayya" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /></div>
+           <div className="relative h-72 overflow-hidden rounded-3xl"><LoadingImage src="/story.jpg" alt="Kebersamaan jamaah Hayya" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /></div>
           <div><SectionHeading align="left" eyebrow="MENDAMPINGI SETIAP LANGKAH" title="Ibadah Lebih Tenang bersama Tim Berpengalaman" description="PT Hayya Haramain Global melayani perjalanan dan pariwisata berizin, dengan pendampingan dari proses pendaftaran hingga kepulangan." /><Link href="/tentang" className="mt-5 inline-flex min-h-11 items-center font-bold text-pine">Kenali Hayya <span aria-hidden="true" className="ml-1">-&gt;</span></Link></div>
         </div>
       </section>
@@ -71,10 +74,20 @@ export default function Home() {
       </Reveal>
 
       <Reveal>
-      <section aria-label="Galeri perjalanan" className="bg-pine text-white">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-[0.8fr_1.2fr]">
-          <div><SectionHeading align="left" eyebrow="MOMEN PERJALANAN" title="Langkah Suci, Cerita yang Berarti" description="Lihat dokumentasi perjalanan dan kebersamaan jamaah Hayya." /><Link href="/galeri" className="mt-5 inline-flex min-h-11 items-center font-bold text-gold-soft">Buka galeri <span aria-hidden="true" className="ml-1">-&gt;</span></Link></div>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">{GALLERY.slice(0, 6).map((item) => <div key={item.src} className="relative h-36 overflow-hidden rounded-2xl"><Image src={item.src} alt={item.alt} fill sizes="(max-width: 640px) 50vw, 20vw" className="object-cover" /></div>)}</div>
+      <section aria-label="Testimoni jamaah" className="border-y border-[#eee8dc] bg-[#f4f0e7] px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <SectionHeading eyebrow="CERITA JAMAAH" title="Pengalaman yang Membekas di Hati" description="Cerita dari jamaah Hayya tentang perjalanan yang didampingi dengan tenang." />
+          <div className="mt-9"><TestimonialShowcase items={TESTIMONIALS} compact /></div>
+        </div>
+      </section>
+      </Reveal>
+
+      <Reveal>
+      <section aria-label="Galeri perjalanan" className="bg-white px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <SectionHeading eyebrow="DOKUMENTASI PERJALANAN" title="Momen Bersama Hayya" description="Potongan cerita dari perjalanan jamaah di Tanah Suci dan berbagai destinasi." />
+          <div className="mt-9"><GalleryGrid items={GALLERY.slice(0, 6)} compact /></div>
+          <p className="mt-7 text-center"><Link href="/galeri" className="inline-flex min-h-11 items-center font-bold text-pine">Buka galeri lengkap <span aria-hidden="true" className="ml-1">-&gt;</span></Link></p>
         </div>
       </section>
       </Reveal>

@@ -27,7 +27,7 @@ export const PACKAGES: PackageInfo[] = [
     durationLabel: "9 Hari",
     departureCity: "Jakarta",
     airline: "Garuda Indonesia",
-    seatLabel: "Terbatas",
+    seatLabel: "5 seat",
     priceFrom: 35900000,
     image: "/package-1.jpg",
     gallery: [{ src: "/package-1.jpg", alt: "Suasana perjalanan umroh", width: 1160, height: 1452 }],

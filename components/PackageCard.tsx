@@ -25,8 +25,8 @@ export function PackageCard({ packageInfo }: { packageInfo: PackageInfo }) {
             <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
             <span>{packageInfo.durationLabel}</span>
           </span>
-          {packageInfo.seatLabel ? <span className="inline-flex items-center rounded-full bg-[#fff4df] px-3 py-2 text-xs font-extrabold text-[#8a6426]">Sisa {packageInfo.seatLabel}</span> : null}
         </div>
+        {packageInfo.seatLabel ? <div className="mt-2"><span className="inline-flex items-center rounded-full bg-[#fff4df] px-3 py-2 text-xs font-extrabold text-[#8a6426]">Sisa {packageInfo.seatLabel}</span></div> : null}
         <div className="mt-auto flex gap-2 pt-5">
           <Link href={`/paket/${packageInfo.slug}`} className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full border border-pine px-3 text-xs font-bold text-pine transition-colors hover:bg-pine hover:text-white">Lihat Detail</Link>
           <a href={packageWaLink(packageInfo)} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full bg-gold px-3 text-xs font-bold text-pine transition-colors hover:bg-gold-soft">WhatsApp</a>

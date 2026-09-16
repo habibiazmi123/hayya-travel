@@ -5,9 +5,6 @@ import { formatIDR } from "@/lib/format";
 import { packageWaLink } from "@/lib/whatsapp";
 
 export function PackageCard({ packageInfo }: { packageInfo: PackageInfo }) {
-  const departures = packageInfo.departureOptions?.length ? packageInfo.departureOptions : [{ date: packageInfo.dateLabel, seats: null }];
-  const seatLabel = packageInfo.seatLabel;
-
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#eee8dc] bg-white shadow-[0_14px_36px_rgba(20,45,36,0.08)] transition-transform hover:-translate-y-1">
       <div className="relative aspect-[4/5]">
@@ -28,15 +25,6 @@ export function PackageCard({ packageInfo }: { packageInfo: PackageInfo }) {
             <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
             <span>{packageInfo.durationLabel}</span>
           </span>
-        </div>
-        <div className="mt-4 rounded-2xl bg-[#f7f8f5] p-3">
-          <p className="text-xs font-semibold leading-relaxed text-sage">Pilih tanggal keberangkatan untuk melihat detail paket.</p>
-          <div className="mt-3 max-h-[6.25rem] space-y-2 overflow-y-auto pr-1">
-            {departures.map((departure) => <div key={departure.date} className="flex min-h-10 items-center justify-between gap-2 rounded-full border border-[#e6e1d6] bg-white px-3 py-2 text-xs font-bold text-pine">
-              <span>{departure.date}</span>
-              {departure.seats ? <span className="rounded-full bg-[#edf5ef] px-2 py-1 text-[10px] font-extrabold uppercase tracking-[0.05em] text-pine">{departure.seats} seat</span> : seatLabel ? <span className="rounded-full bg-[#edf5ef] px-2 py-1 text-[10px] font-extrabold uppercase tracking-[0.05em] text-pine">Seat {seatLabel.toLowerCase()}</span> : null}
-            </div>)}
-          </div>
         </div>
         <div className="mt-auto flex gap-2 pt-5">
           <Link href={`/paket/${packageInfo.slug}`} className="inline-flex min-h-11 flex-1 items-center justify-center rounded-full border border-pine px-3 text-xs font-bold text-pine transition-colors hover:bg-pine hover:text-white">Lihat Detail</Link>

@@ -20,8 +20,14 @@ export function PackageCard({ packageInfo }: { packageInfo: PackageInfo }) {
           <p className="mt-1 text-2xl font-black leading-none text-pine">{formatIDR(packageInfo.priceFrom)}</p>
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-[#edf5ef] px-3 py-2 text-xs font-extrabold text-pine">Maskapai: {airline}</span>
-          <span className="rounded-full bg-[#f2edf8] px-3 py-2 text-xs font-extrabold text-[#654889]">Durasi: {packageInfo.durationLabel}</span>
+          <span className="inline-flex items-center gap-2 rounded-full bg-[#edf5ef] px-3 py-2 text-xs font-extrabold text-pine">
+            <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9L2 14v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5L21 16Z" /></svg>
+            <span>{airline}</span>
+          </span>
+          <span className="inline-flex items-center gap-2 rounded-full bg-[#f2edf8] px-3 py-2 text-xs font-extrabold text-[#654889]">
+            <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+            <span>{packageInfo.durationLabel}</span>
+          </span>
         </div>
         <div className="mt-4 rounded-2xl bg-[#f7f8f5] p-3">
           <p className="text-xs font-semibold leading-relaxed text-sage">Pilih tanggal keberangkatan untuk melihat detail paket.</p>

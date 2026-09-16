@@ -5,7 +5,7 @@ import { formatIDR } from "@/lib/format";
 import { packageWaLink } from "@/lib/whatsapp";
 
 export function PackageCard({ packageInfo }: { packageInfo: PackageInfo }) {
-  const dates = packageInfo.departureDates?.length ? packageInfo.departureDates : [packageInfo.dateLabel];
+  const departures = packageInfo.departureOptions?.length ? packageInfo.departureOptions : [{ date: packageInfo.dateLabel, seats: null }];
   const seatLabel = packageInfo.seatLabel;
 
   return (
@@ -32,9 +32,9 @@ export function PackageCard({ packageInfo }: { packageInfo: PackageInfo }) {
         <div className="mt-4 rounded-2xl bg-[#f7f8f5] p-3">
           <p className="text-xs font-semibold leading-relaxed text-sage">Pilih tanggal keberangkatan untuk melihat detail paket.</p>
           <div className="mt-3 max-h-[6.25rem] space-y-2 overflow-y-auto pr-1">
-            {dates.map((date) => <div key={date} className="flex min-h-10 items-center justify-between gap-2 rounded-full border border-[#e6e1d6] bg-white px-3 py-2 text-xs font-bold text-pine">
-              <span>{date}</span>
-              {seatLabel ? <span className="rounded-full bg-[#edf5ef] px-2 py-1 text-[10px] font-extrabold uppercase tracking-[0.05em] text-pine">Seat {seatLabel.toLowerCase()}</span> : null}
+            {departures.map((departure) => <div key={departure.date} className="flex min-h-10 items-center justify-between gap-2 rounded-full border border-[#e6e1d6] bg-white px-3 py-2 text-xs font-bold text-pine">
+              <span>{departure.date}</span>
+              {departure.seats ? <span className="rounded-full bg-[#edf5ef] px-2 py-1 text-[10px] font-extrabold uppercase tracking-[0.05em] text-pine">{departure.seats} seat</span> : seatLabel ? <span className="rounded-full bg-[#edf5ef] px-2 py-1 text-[10px] font-extrabold uppercase tracking-[0.05em] text-pine">Seat {seatLabel.toLowerCase()}</span> : null}
             </div>)}
           </div>
         </div>

@@ -8,7 +8,7 @@ export type PackageInfo = {
   departureCity?: string;
   airline?: string;
   seatLabel?: string;
-  departureDates?: string[];
+  departureOptions?: { date: string; seats: number }[];
   priceFrom: number;
   image: string;
   gallery?: { src: string; alt: string; width: number; height: number }[];
@@ -27,7 +27,13 @@ export const PACKAGES: PackageInfo[] = [
     dateLabel: "24 Desember 2026",
     durationLabel: "9 Hari",
     departureCity: "Jakarta",
+    airline: "Garuda Indonesia",
     seatLabel: "Terbatas",
+    departureOptions: [
+      { date: "24 Desember 2026", seats: 9 },
+      { date: "26 Desember 2026", seats: 18 },
+      { date: "28 Desember 2026", seats: 12 },
+    ],
     priceFrom: 35900000,
     image: "/package-1.jpg",
     gallery: [{ src: "/package-1.jpg", alt: "Suasana perjalanan umroh", width: 1160, height: 1452 }],
@@ -50,7 +56,13 @@ export const PACKAGES: PackageInfo[] = [
     name: "Umrah Falah 07 November 2026",
     dateLabel: "07 November 2026",
     durationLabel: "9 Hari",
+    airline: "Oman Air",
     seatLabel: "Terbatas",
+    departureOptions: [
+      { date: "07 November 2026", seats: 14 },
+      { date: "14 November 2026", seats: 22 },
+      { date: "21 November 2026", seats: 8 },
+    ],
     priceFrom: 38600000,
     image: "/package-2.jpg",
     gallery: [{ src: "/package-2.jpg", alt: "Suasana perjalanan umroh", width: 1080, height: 1528 }],
@@ -74,12 +86,17 @@ export const PACKAGES: PackageInfo[] = [
     dateLabel: "08 Oktober 2026",
     durationLabel: "12 Hari",
     departureCity: "Jakarta",
-    airline: "Etihad Airways",
+    airline: "Saudia Airlines",
     seatLabel: "Terbatas",
+    departureOptions: [
+      { date: "08 Oktober 2026", seats: 11 },
+      { date: "15 Oktober 2026", seats: 17 },
+      { date: "22 Oktober 2026", seats: 6 },
+    ],
     priceFrom: 33850000,
     image: "/package-3.jpg",
     gallery: [{ src: "/package-3.jpg", alt: "Suasana perjalanan umroh", width: 1080, height: 1528 }],
-    schedule: ["Tanggal: 08 Oktober 2026", "Periode: 12 Hari", "Keberangkatan: Jakarta", "Maskapai: Etihad Airways"],
+    schedule: ["Tanggal: 08 Oktober 2026", "Periode: 12 Hari", "Keberangkatan: Jakarta", "Maskapai: Saudia Airlines"],
     hotels: {
       makkah: "Hotel bintang 3 (Fajr Badee 4) / setaraf (5 malam)",
       madinah: "Hotel bintang 3 (Anwar Al-Zahra) / setaraf (5 malam)",

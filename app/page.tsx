@@ -41,18 +41,10 @@ export default function Home() {
         <span data-home-hero-sentinel aria-hidden="true" className="absolute bottom-0 left-0 h-px w-full" />
       </section>
 
-      <section aria-label="Kepercayaan" className="border-b border-[#eee8dc] bg-white">
-        <dl className="mx-auto grid max-w-6xl grid-cols-3 px-4 py-7 text-center">
-          <div><dd className="font-display text-3xl font-bold text-pine">100+</dd><dt className="mt-1 text-xs text-sage">Pelanggan</dt></div>
-          <div className="border-x border-[#eee8dc]"><dd className="font-display text-3xl font-bold text-pine">8 Jam</dd><dt className="mt-1 text-xs text-sage">Pelayanan hari kerja</dt></div>
-          <div><dd className="font-display text-3xl font-bold text-pine">Berizin</dd><dt className="mt-1 text-xs text-sage">Biro perjalanan</dt></div>
-        </dl>
-      </section>
-
       <Reveal>
       <section aria-label="Paket umroh" className="mx-auto max-w-6xl px-4 py-16">
         <div className="flex items-end justify-between gap-5"><SectionHeading align="left" eyebrow="PILIHAN PERJALANAN" title="Paket Umroh 2026" description="Pilih jadwal yang paling sesuai, lalu konsultasikan detailnya dengan tim Hayya." /><Link href="/paket" className="hidden min-h-11 shrink-0 items-center text-sm font-bold text-pine sm:inline-flex">Lihat semua paket</Link></div>
-        <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{PACKAGES.map((packageInfo) => <PackageCard key={packageInfo.slug} packageInfo={packageInfo} />)}</div>
+        <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{PACKAGES.slice(0, 3).map((packageInfo) => <PackageCard key={packageInfo.slug} packageInfo={packageInfo} />)}</div>
         <Link href="/paket" className="mt-6 inline-flex min-h-11 items-center text-sm font-bold text-pine sm:hidden">Lihat semua paket</Link>
       </section>
       </Reveal>

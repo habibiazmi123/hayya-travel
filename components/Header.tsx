@@ -3,13 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SITE } from "@/lib/site";
 import { generalWaLink } from "@/lib/whatsapp";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isOverHero, setIsOverHero] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
@@ -19,23 +20,35 @@ export function Header() {
     const sentinel = document.querySelector<HTMLElement>("[data-home-hero-sentinel]");
     if (!sentinel) return;
 
-    const update = (top: number) => setIsOverHero(top <= 80);
-    const frame = window.requestAnimationFrame(() => update(sentinel.getBoundingClientRect().top));
+    let frame = 0;
+    const update = () => {
+      const top = sentinel.getBoundingClientRect().top;
+      const range = Math.max(window.innerHeight - 80, 1);
+      const progress = Math.min(1, Math.max(0, (window.innerHeight - top) / range));
+      headerRef.current?.style.setProperty("--header-progress", progress.toFixed(3));
+      setIsOverHero(progress >= 1);
+    };
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        update();
+      });
+    };
 
-    const observer = new IntersectionObserver(
-      ([entry]) => update(entry.boundingClientRect.top),
-      { rootMargin: "-80px 0px 0px 0px" },
-    );
-    observer.observe(sentinel);
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
 
     return () => {
       window.cancelAnimationFrame(frame);
-      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
     };
   }, [isHome]);
 
   return (
-    <header className={`site-header ${isHome ? "site-header-home" : ""} ${isHome && !isOverHero ? "site-header-transparent" : "site-header-solid"}`}>
+    <header ref={headerRef} className={`site-header ${isHome ? "site-header-home" : ""} ${isHome && !isOverHero ? "site-header-transparent" : "site-header-solid"}`}>
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-5 px-4">
         <Link href="/" className="inline-flex min-h-11 items-center" aria-label="Hayya Tour & Travel - Beranda">
           <Image src="/logo.png" alt="Hayya Umroh Hajj" width={112} height={68} preload className="h-14 w-auto object-contain" />

@@ -55,7 +55,7 @@ export function Header() {
         </Link>
         <nav aria-label="Navigasi utama" className="hidden items-center gap-5 lg:flex">
           {SITE.nav.map((item) => (
-              <Link key={item.href} href={item.href} className={`inline-flex min-h-11 items-center text-sm font-semibold transition-colors hover:text-gold-soft ${isHome && !isOverHero ? "text-white/85" : "text-ink/75"}`}>
+              <Link key={item.href} href={item.href} className="site-header-nav-link inline-flex min-h-11 items-center text-sm font-semibold transition-colors hover:text-gold-soft">
               {item.label}
             </Link>
           ))}
@@ -64,7 +64,7 @@ export function Header() {
           <a href={generalWaLink()} target="_blank" rel="noopener noreferrer" className="hidden min-h-11 items-center rounded-full bg-pine px-4 text-sm font-bold text-white transition-colors hover:bg-pine-deep sm:inline-flex">
             WhatsApp Kami
           </a>
-          <button type="button" onClick={() => setIsOpen((value) => !value)} aria-expanded={isOpen} aria-controls="mobile-menu" aria-label={isOpen ? "Tutup menu" : "Buka menu"} className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#e5dfd2] text-pine lg:hidden">
+          <button type="button" onClick={() => setIsOpen((value) => !value)} aria-expanded={isOpen} aria-controls="mobile-menu" aria-label={isOpen ? "Tutup menu" : "Buka menu"} className="site-header-menu-button inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#e5dfd2] lg:hidden">
             <span className="sr-only">{isOpen ? "Tutup menu" : "Buka menu"}</span>
             <span aria-hidden="true" className="flex flex-col gap-1.5">
               <span className="h-0.5 w-5 bg-current" />

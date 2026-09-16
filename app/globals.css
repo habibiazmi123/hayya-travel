@@ -130,8 +130,11 @@ summary:focus-visible {
 
 .site-header-transparent {
   background-color: rgb(255 255 255 / calc(var(--header-progress, 0) * 100%));
-  color: white;
+  color: color-mix(in srgb, var(--color-pine) calc(var(--header-progress, 0) * 100%), rgb(255 255 255 / 85%));
 }
+
+.site-header-nav-link,
+.site-header-menu-button { color: inherit; }
 
 .site-header-solid {
   border-bottom: 1px solid #eee8dc;

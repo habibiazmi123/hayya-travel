@@ -55,7 +55,7 @@ export function TestimonialShowcase({ items, compact = false }: { items: Testimo
           </div>
         </article>
       </div>
-      {compact ? <p className="mt-6 text-center"><Link href="/testimoni" className="inline-flex min-h-11 items-center font-bold text-pine">Lihat semua cerita <span aria-hidden="true" className="ml-1">-&gt;</span></Link></p> : null}
+      {compact ? <p className="mt-6 text-center"><Link href="/testimoni" className="inline-flex min-h-11 items-center font-bold text-pine">Baca cerita lainnya</Link></p> : null}
     </div>
   );
 }

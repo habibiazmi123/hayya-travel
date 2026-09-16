@@ -31,7 +31,7 @@ export default function Home() {
             <p className="mt-5 max-w-lg text-base leading-relaxed text-white/80">Hayya Umroh Hajj mendampingi ibadah Anda dengan proses cepat, Muthawif berpengalaman, dan pelayanan yang amanah.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a href={generalWaLink()} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center rounded-full bg-gold px-6 font-bold text-pine transition-colors hover:bg-gold-soft">Konsultasi Gratis</a>
-              <Link href="/paket" className="inline-flex min-h-12 items-center rounded-full border border-white/40 px-6 font-bold transition-colors hover:border-gold hover:text-gold-soft">Lihat Paket <span aria-hidden="true" className="ml-2">-&gt;</span></Link>
+              <Link href="/paket" className="inline-flex min-h-12 items-center rounded-full border border-white/40 px-6 font-bold transition-colors hover:border-gold hover:text-gold-soft">Jelajahi Paket</Link>
             </div>
             <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs text-white/75">
               <li>Travel agent berizin</li><li>Proses cepat</li><li>Muthawif berpengalaman</li>
@@ -51,9 +51,9 @@ export default function Home() {
 
       <Reveal>
       <section aria-label="Paket umroh" className="mx-auto max-w-6xl px-4 py-16">
-        <div className="flex items-end justify-between gap-5"><SectionHeading align="left" eyebrow="PILIHAN PERJALANAN" title="Paket Umroh 2026" description="Pilih jadwal yang paling sesuai, lalu konsultasikan detailnya dengan tim Hayya." /><Link href="/paket" className="hidden min-h-11 shrink-0 items-center text-sm font-bold text-pine sm:inline-flex">Lihat semua <span aria-hidden="true" className="ml-1">-&gt;</span></Link></div>
+        <div className="flex items-end justify-between gap-5"><SectionHeading align="left" eyebrow="PILIHAN PERJALANAN" title="Paket Umroh 2026" description="Pilih jadwal yang paling sesuai, lalu konsultasikan detailnya dengan tim Hayya." /><Link href="/paket" className="hidden min-h-11 shrink-0 items-center text-sm font-bold text-pine sm:inline-flex">Jelajahi semua paket</Link></div>
         <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{PACKAGES.map((packageInfo) => <PackageCard key={packageInfo.slug} packageInfo={packageInfo} />)}</div>
-        <Link href="/paket" className="mt-6 inline-flex min-h-11 items-center text-sm font-bold text-pine sm:hidden">Lihat semua paket <span aria-hidden="true" className="ml-1">-&gt;</span></Link>
+        <Link href="/paket" className="mt-6 inline-flex min-h-11 items-center text-sm font-bold text-pine sm:hidden">Jelajahi semua paket</Link>
       </section>
       </Reveal>
 
@@ -61,7 +61,7 @@ export default function Home() {
       <section aria-label="Pendampingan" className="border-y border-[#eee8dc] bg-white">
         <div className="mx-auto grid max-w-6xl items-center gap-9 px-4 py-16 md:grid-cols-2">
            <div className="relative h-72 overflow-hidden rounded-3xl"><LoadingImage src="/story.jpg" alt="Kebersamaan jamaah Hayya" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" /></div>
-          <div><SectionHeading align="left" eyebrow="MENDAMPINGI SETIAP LANGKAH" title="Ibadah Lebih Tenang bersama Tim Berpengalaman" description="PT Hayya Haramain Global melayani perjalanan dan pariwisata berizin, dengan pendampingan dari proses pendaftaran hingga kepulangan." /><Link href="/tentang" className="mt-5 inline-flex min-h-11 items-center font-bold text-pine">Kenali Hayya <span aria-hidden="true" className="ml-1">-&gt;</span></Link></div>
+          <div><SectionHeading align="left" eyebrow="MENDAMPINGI SETIAP LANGKAH" title="Ibadah Lebih Tenang bersama Tim Berpengalaman" description="PT Hayya Haramain Global melayani perjalanan dan pariwisata berizin, dengan pendampingan dari proses pendaftaran hingga kepulangan." /><Link href="/tentang" className="mt-5 inline-flex min-h-11 items-center font-bold text-pine">Kenali Hayya</Link></div>
         </div>
       </section>
       </Reveal>
@@ -87,13 +87,13 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <SectionHeading eyebrow="DOKUMENTASI PERJALANAN" title="Momen Bersama Hayya" description="Potongan cerita dari perjalanan jamaah di Tanah Suci dan berbagai destinasi." />
           <div className="mt-9"><GalleryGrid items={GALLERY.slice(0, 6)} compact /></div>
-          <p className="mt-7 text-center"><Link href="/galeri" className="inline-flex min-h-11 items-center font-bold text-pine">Buka galeri lengkap <span aria-hidden="true" className="ml-1">-&gt;</span></Link></p>
+          <p className="mt-7 text-center"><Link href="/galeri" className="inline-flex min-h-11 items-center font-bold text-pine">Jelajahi galeri lengkap</Link></p>
         </div>
       </section>
       </Reveal>
 
       <Reveal>
-      <section aria-label="FAQ" className="mx-auto max-w-3xl px-4 py-16"><SectionHeading eyebrow="TANYA JAWAB" title="Persiapkan Perjalanan dengan Tenang" description="Jawaban singkat untuk pertanyaan yang paling sering kami terima." /><div className="mt-9"><FaqList items={FAQS.slice(0, 4)} /></div><p className="mt-5 text-center"><Link href="/faq" className="inline-flex min-h-11 items-center font-bold text-pine">Lihat semua FAQ <span aria-hidden="true" className="ml-1">-&gt;</span></Link></p></section>
+       <section aria-label="FAQ" className="mx-auto max-w-3xl px-4 py-16"><SectionHeading eyebrow="TANYA JAWAB" title="Persiapkan Perjalanan dengan Tenang" description="Jawaban singkat untuk pertanyaan yang paling sering kami terima." /><div className="mt-9"><FaqList items={FAQS.slice(0, 4)} /></div><p className="mt-5 text-center"><Link href="/faq" className="inline-flex min-h-11 items-center font-bold text-pine">Baca jawaban lengkap</Link></p></section>
       </Reveal>
 
       <Reveal>

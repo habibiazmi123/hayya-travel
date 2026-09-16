@@ -26,8 +26,8 @@ export const PACKAGES: PackageInfo[] = [
     durationLabel: "9 Hari",
     departureCity: "Jakarta",
     priceFrom: 35900000,
-    image: "/destinations/umrah-makkah.jpg",
-    gallery: [{ src: "/destinations/umrah-makkah.jpg", alt: "Masjidil Haram di Mekkah", width: 1800, height: 2700 }],
+    image: "/package-1.jpg",
+    gallery: [{ src: "/package-1.jpg", alt: "Suasana perjalanan umroh", width: 1160, height: 1452 }],
     schedule: ["Tanggal: 24 Desember 2026", "Periode: 9 Hari", "Keberangkatan: Jakarta"],
     hotels: {
       makkah: "Hotel bintang 3 / setaraf",
@@ -48,8 +48,8 @@ export const PACKAGES: PackageInfo[] = [
     dateLabel: "07 November 2026",
     durationLabel: "9 Hari",
     priceFrom: 38600000,
-    image: "/destinations/umrah-makkah.jpg",
-    gallery: [{ src: "/destinations/umrah-makkah.jpg", alt: "Masjidil Haram di Mekkah", width: 1800, height: 2700 }],
+    image: "/package-2.jpg",
+    gallery: [{ src: "/package-2.jpg", alt: "Suasana perjalanan umroh", width: 1080, height: 1528 }],
     schedule: ["Tanggal: 07 November 2026", "Periode: 9 Hari"],
     hotels: {
       makkah: "Hotel bintang 3 / setaraf",
@@ -72,8 +72,8 @@ export const PACKAGES: PackageInfo[] = [
     departureCity: "Jakarta",
     airline: "Etihad Airways",
     priceFrom: 33850000,
-    image: "/destinations/umrah-makkah.jpg",
-    gallery: [{ src: "/destinations/umrah-makkah.jpg", alt: "Masjidil Haram di Mekkah", width: 1800, height: 2700 }],
+    image: "/package-3.jpg",
+    gallery: [{ src: "/package-3.jpg", alt: "Suasana perjalanan umroh", width: 1080, height: 1528 }],
     schedule: ["Tanggal: 08 Oktober 2026", "Periode: 12 Hari", "Keberangkatan: Jakarta", "Maskapai: Etihad Airways"],
     hotels: {
       makkah: "Hotel bintang 3 (Fajr Badee 4) / setaraf (5 malam)",
